@@ -1,0 +1,16 @@
+---
+- name: 1. Install MariaDB server package
+  apt: name=mariadb-server state=present
+
+- name: 2. Start MySql Service
+  service: name=mysql state=started enabled=true
+
+- name: Install pythin MySql package # required for mysql_db tasks
+  apt: name=python-mysqldb state=present
+
+- name: 3. Create a new database
+  mysql_db: name=ltarasiewicz state=present collation=utf8_general_ci
+
+- name: 4. Create a database user
+  mysql_user: name=luqo33 password=bonzo86 priv=*.*:ALL host=localhost
+

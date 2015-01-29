@@ -1,0 +1,11 @@
+---
+- hosts: all
+  vars_files:
+    - vars/main.yml
+  pre_tasks:
+      - name: update apt cache
+        apt: update_cache=yes
+  roles:
+    - apache2
+    - mariadb
+    - phpmyadmin

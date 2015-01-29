@@ -1,0 +1,2 @@
+[webservers]
+92.222.76.119 ansible_ssh_user=admin
